@@ -2,6 +2,8 @@ from requests import get
 from requests.exceptions import RequestException
 from contextlib import closing
 from bs4 import BeautifulSoup
+import csv
+
 
 def simple_get(url):
     """
@@ -39,6 +41,8 @@ def log_error(e):
     """
     print(e)
 
+f = csv.writer(open('flightInfo.csv', 'w'))
+
 raw_html = simple_get("https://spaceflightnow.com/launch-schedule/")
 
 html = BeautifulSoup(raw_html, 'html.parser')
@@ -46,5 +50,8 @@ html = BeautifulSoup(raw_html, 'html.parser')
 for i in html.find_all('div', attrs={'class': 'datename'}):
     date = i.find('span', attrs={'class': 'launchdate'})
     mission = i.find('span', attrs={'class': 'mission'})
-    print (date.text + "  " + mission.text)
+    row = [date.text, mission.text]
+    print(row)
+    f.writerow(row)
+
 
