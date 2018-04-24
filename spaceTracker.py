@@ -5,6 +5,9 @@ from bs4 import BeautifulSoup
 import csv
 
 
+
+
+
 def simple_get(url):
     """
     Attempts to get the content at `url` by making an HTTP GET request.
@@ -41,17 +44,18 @@ def log_error(e):
     """
     print(e)
 
-f = csv.writer(open('flightInfo.csv', 'w'))
 
-raw_html = simple_get("https://spaceflightnow.com/launch-schedule/")
 
-html = BeautifulSoup(raw_html, 'html.parser')
 
-for i in html.find_all('div', attrs={'class': 'datename'}):
-    date = i.find('span', attrs={'class': 'launchdate'})
-    mission = i.find('span', attrs={'class': 'mission'})
-    row = [date.text, mission.text]
-    print(row)
-    f.writerow(row)
+def getWebInfo():
+    raw_html = simple_get("https://spaceflightnow.com/launch-schedule/")
+    html = BeautifulSoup(raw_html, 'html.parser')
+    fullList = []
+    for i in html.find_all('div', attrs={'class': 'datename'}):
+        date = i.find('span', attrs={'class': 'launchdate'})
+        mission = i.find('span', attrs={'class': 'mission'})
+        row = [date.text, mission.text]
+        fullList.append(row)
+    return fullList
 
 
