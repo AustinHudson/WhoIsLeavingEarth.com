@@ -47,15 +47,39 @@ def log_error(e):
 
 
 
-def getWebInfo():
+def getDateInfo():
     raw_html = simple_get("https://spaceflightnow.com/launch-schedule/")
     html = BeautifulSoup(raw_html, 'html.parser')
-    fullList = []
+    missionList = []
+    counter = 0
+
+    launchList = []
+    for i in html.find_all('div', attrs={"class": 'missiondata'}):
+        launchTime = i.text
+        launchList.append(launchTime)
+
+    descriptionList = []
+    for i in html.find_all('div', attrs={"class": 'missdescrip'}):
+        missiondescription = i.text
+        descriptionList.append(missiondescription)
+
     for i in html.find_all('div', attrs={'class': 'datename'}):
         date = i.find('span', attrs={'class': 'launchdate'})
         mission = i.find('span', attrs={'class': 'mission'})
-        row = [date.text, mission.text]
-        fullList.append(row)
-    return fullList
+        row = {
+                "date": date.text, "name":mission.text,
+                "launchInfo": launchList[int(counter)],
+                "description":descriptionList[int(counter)]
+            }
+        missionList.append(row)
+        counter += 1
+    return missionList
 
-
+def getLaunchInfo(index):
+    raw_html = simple_get("https://spaceflightnow.com/launch-schedule/")
+    html = BeautifulSoup(raw_html, 'html.parser')
+    launchList = []
+    for i in html.find_all('div', attrs={"class":'missiondata'}):
+        launchTime = i.text
+        launchList.append(launchTime)
+    return launchList[int(index)]

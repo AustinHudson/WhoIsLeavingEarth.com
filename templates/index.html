@@ -5,8 +5,18 @@
     <title>Title</title>
 </head>
 <body>
-    {% for x in missionList %}
-        <p>{{ x }}</p>
+    {% for x in dateList %}
+        <div style="border: solid black 2px">
+            <P>{{ x.date, x.name }} </p>
+            <p>{{ x.lauchInfo }}</p>
+            <p>{{ x.description }}</p>
+        </div>
+
+
     {% endfor %}
+
+
+
+
 </body>
 </html>
