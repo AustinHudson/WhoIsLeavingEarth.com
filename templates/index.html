@@ -1,12 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    {% for x in missionList %}
-        <p>{{ x }}</p>
+    {% for x in dateList %}
+        <div style="border: solid black 2px">
+            <P>{{ x.date, x.name }} </p>
+            <p>{{ x.lauchInfo }}</p>
+            <p>{{ x.description }}</p>
+        </div>
+
+
     {% endfor %}
+
+
+
+
 </body>
 </html>
