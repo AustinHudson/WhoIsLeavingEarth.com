@@ -38,9 +38,7 @@ def is_good_response(resp):
 
 def log_error(e):
     """
-    It is always a good idea to log errors.
-    This function just prints them, but you can
-    make it do anything.
+    Print any errors.
     """
     print(e)
 
@@ -53,16 +51,19 @@ def getDateInfo():
     missionList = []
     counter = 0
 
+    # launchList contains the flight window and launch location
     launchList = []
     for i in html.find_all('div', attrs={"class": 'missiondata'}):
         launchTime = i.text
         launchList.append(launchTime)
 
+    # descriptionList contains the mission descriptions
     descriptionList = []
     for i in html.find_all('div', attrs={"class": 'missdescrip'}):
         missiondescription = i.text
         descriptionList.append(missiondescription)
 
+    # the date and mission name are included before the entire row is appended to the missionList
     for i in html.find_all('div', attrs={'class': 'datename'}):
         date = i.find('span', attrs={'class': 'launchdate'})
         mission = i.find('span', attrs={'class': 'mission'})
