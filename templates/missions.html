@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Future Missions</title>
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Bungee+Shade|Gruppo|Teko" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!-- Custom styles for this template --><link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+
+    <style>
+        body {
+            padding-top: 5rem;
+            background-image: url('https://i.imgur.com/FwCRSND.jpg');
+        }
+
+       .dateName{
+            margin-bottom: 15%;
+
+       }
+
+       #date{
+           font-family: 'Audiowide';
+           color: #a4190d;
+       }
+
+       #missionName{
+           font-family: 'Bungee Shade';
+           color: #3269a4;
+       }
+
+        .mission{
+            border: black 5px solid;
+            box-shadow: 0 0 0 5px #00dcdc;
+
+            border-radius: 15px 50px;
+            margin: 5%;
+            padding: 10px;
+            background: whitesmoke;
+        }
+
+        #missionDescription{
+            font-family: 'Gruppo';
+            font-size: 25px;
+
+        }
+
+        #launchInformation{
+            font-family: 'Teko';
+            font-size: 25px;
+
+        }
+
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container">
+
+     {% for x in dateList %}
+        <div class="mission">
+            <container class="dateName"><p><h3><span id ='date'>{{x.date}}</span> | <span id="missionName">{{ x.name }}</span></h3></p></container>
+
+            <p id="launchInformation"><strong>{{ x.launchInfo }}</strong></p>
+            <p id = "missionDescription">{{ x.description }}</p>
+        </div>
+
+
+    {% endfor %}
+
+
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Holder.js for placeholder images -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
+  </body>
+</html>
