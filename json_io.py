@@ -10,7 +10,7 @@ def home():
     return render_template("landingPage.html")
 
 
-@app.route("/output")
+@app.route("/missions")
 def output():
 
     return render_template("index.html", dateList=getDateInfo())
