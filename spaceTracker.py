@@ -1,3 +1,5 @@
+import json
+import requests
 from requests import get
 from requests.exceptions import RequestException
 from contextlib import closing
@@ -38,7 +40,16 @@ def log_error(e):
     """
     print(e)
 
+def getPeopleInfo():
+    url = "http://api.open-notify.org/astros.json"
+    response = requests.get(url)
+    peopleData = json.loads(response.text)
+    print(peopleData['people'])
+    # peopleList = []
+    # for i in peopleData['people']:
+    numOfPeople = len(peopleData['people'])
 
+    return [peopleData['people'], len(peopleData['people'])]
 
 
 def getDateInfo():
