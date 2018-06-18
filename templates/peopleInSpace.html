@@ -49,6 +49,8 @@
 
         }
 
+        
+
     </style>
 </head>
 <body>
@@ -60,7 +62,11 @@
      {% for x in peopleList %}
         <div class="astronaut">
             <p id="name"><strong>{{ x.name }}</strong></p>
+            <p class="picture">
+                <img src= {{x.photo}}>
+            </p>
             <p id = "craft">{{ x.craft }}</p>
+            <p id="description">{{ x.info }}</p>
         </div>
 
 

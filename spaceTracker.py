@@ -45,11 +45,31 @@ def getPeopleInfo():
     response = requests.get(url)
     peopleData = json.loads(response.text)
     print(peopleData['people'])
-    # peopleList = []
-    # for i in peopleData['people']:
-    numOfPeople = len(peopleData['people'])
+    peopleList = []
+    for i in peopleData['people']:
+        currentName = i['name'].replace(" ", "%20")
 
-    return [peopleData['people'], len(peopleData['people'])]
+        if currentName == "Richard%20Arnold":
+            currentName = "Richard%20R.%20Arnold"
+
+        if currentName == "Sergey%20Prokopyev":
+            currentName = "Sergey%20Prokopyev%20(cosmonaut)"
+
+        url = "https://en.wikipedia.org/api/rest_v1/page/summary/" + currentName
+        response = requests.get(url)
+        print(response.text)
+        peopleInfo = json.loads(response.text)
+        print(peopleInfo['extract'])
+
+        astronaut = {'name': i['name'], 'craft': i['craft'], 'info': peopleInfo['extract'],
+                     'photo': peopleInfo['originalimage']['source']}
+
+        peopleList.append(astronaut)
+    numOfAstros = len(peopleData['people'])
+
+    print(peopleList)
+
+    return peopleList
 
 
 def getDateInfo():
