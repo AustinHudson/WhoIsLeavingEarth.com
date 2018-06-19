@@ -18,7 +18,7 @@ def output():
 @app.route("/peopleInSpace")
 def peopleOutput():
 
-    return render_template("peopleInSpace.html", peopleList=getPeopleInfo())
+    return render_template("peopleInSpace.html", peopleList=getPeopleInfo(), numOfPeople=6)
 
 if __name__ == "__main__":
     app.run()

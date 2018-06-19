@@ -60,14 +60,13 @@ def getPeopleInfo():
         print(response.text)
         peopleInfo = json.loads(response.text)
         print(peopleInfo['extract'])
-
+        numOfAstros = len(peopleData['people'])
+        if i['craft'] == 'ISS':
+            i['craft'] = 'International Space Station'
         astronaut = {'name': i['name'], 'craft': i['craft'], 'info': peopleInfo['extract'],
-                     'photo': peopleInfo['originalimage']['source']}
+                     'photo': peopleInfo['originalimage']['source'], "numOfAstros": numOfAstros}
 
         peopleList.append(astronaut)
-    numOfAstros = len(peopleData['people'])
-
-    print(peopleList)
 
     return peopleList
 

@@ -14,19 +14,25 @@
             background-image: url('https://i.imgur.com/FwCRSND.jpg');
         }
 
-       .dateName{
-            margin-bottom: 15%;
-       }
-
-       #date{
+       #name{
            font-family: 'Audiowide';
            color: #a4190d;
+           font-size: xx-large;
+
        }
 
-       #missionName{
+       #craft{
            font-family: 'Bungee Shade';
            color: #3269a4;
+           font-size: x-large;
+
        }
+
+       p {
+            text-align: center;
+
+
+        }
 
         .astronaut{
             border: black 5px solid;
@@ -38,34 +44,43 @@
             background: whitesmoke;
         }
 
-        #missionDescription{
+        .picture img{
+
+            max-height: 35%;
+            max-width: 35%;
+            box-shadow: 5px 10px 8px #888888;
+
+        }
+
+        #description{
             font-family: 'Gruppo';
             font-size: 25px;
 
         }
-        #launchInformation{
+        #numberInSpace{
             font-family: 'Teko';
-            font-size: 25px;
+            font-size: 100px;
+            color: white;
+            text-align: center;
 
         }
 
-        
+
 
     </style>
 </head>
 <body>
 <div>
-    <h1>There are currently {{numOfPeople}} Astronauts in space.</h1>
+    <h1 id="numberInSpace">There are currently {{peopleList[0]['numOfAstros']}} Astronauts in space:</h1>
 </div>
   <div class="container">
 
      {% for x in peopleList %}
         <div class="astronaut">
-            <p id="name"><strong>{{ x.name }}</strong></p>
+            <p id="name"><strong>{{ x.name }}</strong>   <p id = "craft">{{ x.craft }}</p></p>
             <p class="picture">
                 <img src= {{x.photo}}>
             </p>
-            <p id = "craft">{{ x.craft }}</p>
             <p id="description">{{ x.info }}</p>
         </div>
 
