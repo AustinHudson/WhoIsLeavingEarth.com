@@ -1,0 +1,33 @@
+ body, html{
+            height: 100%;
+        }
+        .bg{
+            background-image: url("https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=15be9f9073988c075caa018991009b74&auto=format&fit=crop&w=1350&q=80");
+            height: 100%;
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .jumbotron{
+
+            margin-top: 10%;
+            opacity: .55;
+            position: fixed;
+        }
+        .btn-primary{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #3269a4;
+        }
+        .display-3{
+            font-family: 'Allan';
+            color: deepskyblue;
+        }
+        .lead{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Open Sans';
+        }

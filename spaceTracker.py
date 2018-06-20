@@ -40,11 +40,19 @@ def log_error(e):
     """
     print(e)
 
+# ########################################################################################################
+#                                       getPeopleInfo()
+#
+# This function first makes a call to an api which returns the names of the astronauts who are currently in
+# space. These names are then used to make a call to a wikipedia api to gather the summary description and
+# photo. A collection of the astronauts containing their name, craft, background summary, photo, and total
+# number of astronauts is returned.
+# ########################################################################################################
+
 def getPeopleInfo():
     url = "http://api.open-notify.org/astros.json"
     response = requests.get(url)
     peopleData = json.loads(response.text)
-    print(peopleData['people'])
     peopleList = []
     for i in peopleData['people']:
         currentName = i['name'].replace(" ", "%20")
@@ -57,9 +65,7 @@ def getPeopleInfo():
 
         url = "https://en.wikipedia.org/api/rest_v1/page/summary/" + currentName
         response = requests.get(url)
-        print(response.text)
         peopleInfo = json.loads(response.text)
-        print(peopleInfo['extract'])
         numOfAstros = len(peopleData['people'])
         if i['craft'] == 'ISS':
             i['craft'] = 'International Space Station'
@@ -71,7 +77,15 @@ def getPeopleInfo():
     return peopleList
 
 
-def getDateInfo():
+# ########################################################################################################
+#                                       getMissionInfo()
+#
+# This function utilizes a web scraper to collect information on upcoming rocket launches to space.
+# The various html elements are selected and parsed so that mission objects can be created and returned.
+# The missionList contains the launch date, launch location, mission name, and mission description.
+# ########################################################################################################
+
+def getMissionInfo():
     raw_html = simple_get("https://spaceflightnow.com/launch-schedule/")
     html = BeautifulSoup(raw_html, 'html.parser')
     missionList = []
@@ -101,12 +115,3 @@ def getDateInfo():
         missionList.append(row)
         counter += 1
     return missionList
-
-def getLaunchInfo(index):
-    raw_html = simple_get("https://spaceflightnow.com/launch-schedule/")
-    html = BeautifulSoup(raw_html, 'html.parser')
-    launchList = []
-    for i in html.find_all('div', attrs={"class":'missiondata'}):
-        launchTime = i.text
-        launchList.append(launchTime)
-    return launchList[int(index)]

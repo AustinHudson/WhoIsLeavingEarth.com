@@ -7,67 +7,8 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <!-- Custom styles for this template --><link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+    <link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='styles/people.css')}}">
 
-    <style>
-        body {
-            padding-top: 5rem;
-            background-image: url('https://i.imgur.com/FwCRSND.jpg');
-        }
-
-       #name{
-           font-family: 'Audiowide';
-           color: #a4190d;
-           font-size: xx-large;
-
-       }
-
-       #craft{
-           font-family: 'Bungee Shade';
-           color: #3269a4;
-           font-size: x-large;
-
-       }
-
-       p {
-            text-align: center;
-
-
-        }
-
-        .astronaut{
-            border: black 5px solid;
-            box-shadow: 0 0 0 5px #00dcdc;
-
-            border-radius: 15px 50px;
-            margin: 5%;
-            padding: 10px;
-            background: whitesmoke;
-        }
-
-        .picture img{
-
-            max-height: 35%;
-            max-width: 35%;
-            box-shadow: 5px 10px 8px #888888;
-
-        }
-
-        #description{
-            font-family: 'Gruppo';
-            font-size: 25px;
-
-        }
-        #numberInSpace{
-            font-family: 'Teko';
-            font-size: 100px;
-            color: white;
-            text-align: center;
-
-        }
-
-
-
-    </style>
 </head>
 <body>
 <div>
@@ -84,8 +25,8 @@
             <p id="description">{{ x.info }}</p>
         </div>
 
-
     {% endfor %}
+
   </div>
 
 </body>

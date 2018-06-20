@@ -12,58 +12,14 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <!-- Custom styles for this template --><link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
-
-    <style>
-        body {
-            padding-top: 5rem;
-            background-image: url('https://i.imgur.com/FwCRSND.jpg');
-        }
-
-       .dateName{
-            margin-bottom: 15%;
-
-       }
-
-       #date{
-           font-family: 'Audiowide';
-           color: #a4190d;
-       }
-
-       #missionName{
-           font-family: 'Bungee Shade';
-           color: #3269a4;
-       }
-
-        .mission{
-            border: black 5px solid;
-            box-shadow: 0 0 0 5px #00dcdc;
-
-            border-radius: 15px 50px;
-            margin: 5%;
-            padding: 10px;
-            background: whitesmoke;
-        }
-
-        #missionDescription{
-            font-family: 'Gruppo';
-            font-size: 25px;
-
-        }
-
-        #launchInformation{
-            font-family: 'Teko';
-            font-size: 25px;
-
-        }
-
-    </style>
+    <link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='styles/missions.css')}}">
   </head>
 
   <body>
 
     <div class="container">
 
-     {% for x in dateList %}
+     {% for x in missionList %}
         <div class="mission">
             <container class="dateName"><p><h3><span id ='date'>{{x.date}}</span> | <span id="missionName">{{ x.name }}</span></h3></p></container>
 

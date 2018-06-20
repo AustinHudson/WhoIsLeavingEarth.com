@@ -1,6 +1,6 @@
 
 from flask import Flask, render_template
-from spaceTracker import simple_get, getDateInfo, getLaunchInfo, getPeopleInfo
+from spaceTracker import simple_get, getMissionInfo, getPeopleInfo
 app = Flask(__name__)
 
 
@@ -13,7 +13,7 @@ def home():
 @app.route("/missions")
 def output():
 
-    return render_template("missions.html", dateList=getDateInfo())
+    return render_template("missions.html", missionList=getMissionInfo())
 
 @app.route("/peopleInSpace")
 def peopleOutput():
