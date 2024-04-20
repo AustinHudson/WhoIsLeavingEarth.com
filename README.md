@@ -1,5 +1,5 @@
 # WhoIsLeavingEarth.com
-A live website which shows upcoming rocket launches as well as information about the Astronauts who are currently in space. 
+A website which shows upcoming rocket launches as well as information about the Astronauts who are currently in space. 
 
 
 * The infromation for the upcoming missions to space was scpraped and parsed from [Space Flight Now](https://spaceflightnow.com/launch-schedule/).
